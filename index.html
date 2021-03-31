@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+
+    <style>
+        html {
+            padding: 1rem;
+        }
+        
+        .page-header {
+            color: #285d96;
+            margin-right: .5rem;
+        }
+        
+        .button {
+            background-color: rgb(243, 242, 242);
+            border: .1rem solid lightgray;
+            width: 7rem;
+            text-align: center;
+            margin: .5rem;
+            height: 2rem;
+            border-radius: 5px;
+            line-height: 1.7;
+            font-weight: bold;
+            color: rgb(85, 83, 83);
+            cursor: pointer;
+        }
+        
+        .button :hover {
+            opacity: .8;
+        }
+        
+        .saveBtn {
+            color: white;
+            background-color: #0069D9;
+            width: 7rem;
+            text-align: center;
+            margin: .5rem;
+            height: 2rem;
+            border-radius: 5px;
+            line-height: 2;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .saveBtn:hover {
+            opacity: .8;
+        }
+        
+        .vl {
+            border-left: 2px solid lightgray;
+            height: 3rem;
+            margin: 0rem 1rem;
+        }
+        
+        .actions {
+            border: none;
+            outline: none;
+            color: #194472;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .section-header {
+            background-color: rgb(230, 227, 227);
+            color: #3b6a9c;
+            padding: .3rem;
+        }
+        
+        .second-header {
+            color: white;
+            background-color: #3b6a9c;
+            padding: .3rem;
+        }
+        
+        input,
+        select {
+            cursor: pointer;
+        }
+        
+        label {
+            margin-bottom: 0rem !important;
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: rgba(128, 128, 128, .3);
+        }
+        
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+        }
+        
+        .btns {
+            background-color: rgba(169, 169, 169, .7);
+            width: fit-content;
+        }
+        
+        @media (max-width:730px) {
+            .btns {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d-flex" style="height: 2.5rem;">
+        <div class="page-header">
+            <h3>Journal</h3>
+        </div>
+        <div class="page-header" style="line-height: 2;"> <i class="fa fa-search"></i></div>
+    </div>
+
+    <div class="d-flex mt-2 mb-2">
+
+        <div class="saveBtn">Save
+            <select style="background-color: transparent; color: white;border: none; outline: none; cursor: pointer; " name="" id="">
+                <option  value=""><i class="fas fa-chevron-down"></i></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="button">Cancel</div>
+        <div class="button">Reset</div>
+        <div class="vl"></div>
+
+        <select name="" id="" class="actions">
+            <option value="">Actions<i class="fas fa-chevron-down"></i></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+    </div>
+
+    <h5 class="section-header">Primary Information</h5>
+    <section class="row" style="padding: 1rem;">
+        <div class="col-lg-3 col-md-3 col-12">
+            <div class="mb-4">
+                <label for="">ENTRY NO.</label>
+                <p class="font-weight-bold">To Be Generated</p>
+            </div>
+            <div>
+                <label for="currency"> Currency <span style="color: red;">*</span></label>
+                <select class="col-lg-12" name="currency" id="currency">
+                    <option value="SAR">SAR</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
+            <div class="mb-4">
+                <label for="date">Date  <span style="color: red;">*</span></label>
+                <input class="col-lg-12" type="date" id="date" name="date">
+            </div>
+            <div>
+                <label for="postingPeriod">POSTING PERIOD</label>
+                <select class="col-lg-12" name="postingPeriod" id="postingPeriod">
+                    <option value=""> Mar 2020</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
+            <label for="memo">MEMO</label>
+            <input class="col-lg-12" type="text" id="memo" name="memo">
+        </div>
+    </section>
+
+    <h5 class="second-header">Lines</h5>
+    <section class="mt-3 ml-3 mr-3" style=" border: 1px solid lightgray;">
+        <div class="section-header font-weight-bold pl-3">0.00</div>
+
+        <div class="button mt-2 mb-2 ml-3"> Clear All Lines
+        </div>
+
+
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>ACCOUNT <span style="color: red;">*</span></th>
+                    <th>DEBIT</th>
+                    <th>CREDIT</th>
+                    <th>TAX CODE</th>
+                    <th>TAX RATE</th>
+                    <th>GROSS AMT</th>
+                    <th>NAME</th>
+                    <th>PROJECT</th>
+                    <th>CLASS</th>
+                    <th>DEPARTMENT</th>
+
+                </tr>
+                <tr>
+                    <td>Jill</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                </tr>
+
+            </table>
+        </div>
+
+    </section>
+    <div class=" d-flex ml-4 p-1 flex-wrap btns">
+        <div class="saveBtn d-flex justify-content-center align-items-center "><i class="fa fa-check "></i> OK</div>
+        <div class="button "><i class="fa fa-times"></i> Cancel</div>
+        <div class="button"><i class="fa fa-copy "> Make Copy</i></div>
+        <div class="button "><i class="fa fa-plus "> Insert</i></div>
+        <div class="button "><i class="fa fa-trash "> Remove</i></div>
+    </div>
+</body>
+
+</html>
