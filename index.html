@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 
     <style>
         html {
             padding: 1rem;
+        }
+        
+        .firstRow {
+            display: flex;
+        }
+        
+        .secondRow {
+            display: flex;
+            margin: .3rem 0;
         }
         
         .page-header {
@@ -24,7 +32,7 @@
             border: .1rem solid lightgray;
             width: 7rem;
             text-align: center;
-            margin: .5rem;
+            margin: 0 .5rem;
             height: 2rem;
             border-radius: 5px;
             line-height: 1.7;
@@ -42,8 +50,8 @@
             background-color: #0069D9;
             width: 7rem;
             text-align: center;
-            margin: .5rem;
-            height: 2rem;
+            margin-right: .5rem;
+            height: 2.2rem;
             border-radius: 5px;
             line-height: 2;
             font-weight: bold;
@@ -56,7 +64,7 @@
         
         .vl {
             border-left: 2px solid lightgray;
-            height: 3rem;
+            height: 2rem;
             margin: 0rem 1rem;
         }
         
@@ -74,6 +82,24 @@
             padding: .3rem;
         }
         
+        .row {
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .column {
+            width: 30%;
+        }
+        
+        .margin-right {
+            margin-right: 5%;
+        }
+        
+        .margin-bottom {
+            margin-bottom: 1.5rem;
+        }
+        
         .second-header {
             color: white;
             background-color: #3b6a9c;
@@ -85,8 +111,14 @@
             cursor: pointer;
         }
         
-        label {
-            margin-bottom: 0rem !important;
+        .table-container {
+            margin: 1rem 1rem 0 1rem;
+            border: 1px solid lightgray;
+        }
+        
+        .table-header {
+            font-weight: bold;
+            padding-left: .7rem;
         }
         
         table {
@@ -106,14 +138,44 @@
             padding: 8px;
         }
         
+        td {
+            border-right: 1px solid rgba(128, 128, 128, .3);
+        }
+        
+        td input {
+            border: none;
+            outline: none;
+        }
+        
         .btns {
             background-color: rgba(169, 169, 169, .7);
             width: fit-content;
+            flex-wrap: wrap;
+            margin-left: 1rem;
+            padding: .5rem;
+            display: flex;
         }
         
-        @media (max-width:730px) {
+        .btn {
+            margin: .5rem;
+        }
+        
+        .clearAllLineButton {
+            margin: .7rem 0 .7rem .7rem;
+        }
+        
+        @media (max-width:750px) {
             .btns {
                 background-color: transparent;
+            }
+        }
+        
+        @media(max-width:650px) {
+            .column {
+                width: 100% !important;
+            }
+            .margin-right {
+                margin-right: 0;
             }
         }
     </style>
@@ -121,14 +183,14 @@
 
 <body>
 
-    <div class="d-flex" style="height: 2.5rem;">
+    <div class="firstRow" style="height: 2.5rem;">
         <div class="page-header">
-            <h3>Journal</h3>
+            <h3 style="line-height: 0;">Journal</h3>
         </div>
         <div class="page-header" style="line-height: 2;"> <i class="fa fa-search"></i></div>
     </div>
 
-    <div class="d-flex mt-2 mb-2">
+    <div class="secondRow">
 
         <div class="saveBtn">Save
             <select style="background-color: transparent; color: white;border: none; outline: none; cursor: pointer; " name="" id="">
@@ -150,51 +212,51 @@
         </select>
     </div>
 
-    <h5 class="section-header">Primary Information</h5>
-    <section class="row" style="padding: 1rem;">
-        <div class="col-lg-3 col-md-3 col-12">
-            <div class="mb-4">
-                <label for="">ENTRY NO.</label>
-                <p class="font-weight-bold">To Be Generated</p>
+    <h2 class="section-header">Primary Information</h2>
+    <section class="row">
+        <div class=" column margin-right margin-bottom ">
+            <div class="margin-bottom">
+                <label for=" ">ENTRY NO.</label>
+                <p style="font-size: bold;">To Be Generated</p>
             </div>
             <div>
-                <label for="currency"> Currency <span style="color: red;">*</span></label>
-                <select class="col-lg-12" name="currency" id="currency">
-                    <option value="SAR">SAR</option>
+                <label for="currency "> Currency <span style="color: red; ">*</span></label>
+                <select style="width: 100%; margin-top: .5rem;" name="currency " id="currency ">
+                    <option value="SAR ">SAR</option>
                 </select>
             </div>
 
         </div>
-        <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
-            <div class="mb-4">
-                <label for="date">Date  <span style="color: red;">*</span></label>
-                <input class="col-lg-12" type="date" id="date" name="date">
+        <div class="column margin-right margin-bottom ">
+            <div class="margin-bottom">
+                <label for="date ">Date  <span style="color: red; ">*</span></label>
+                <input style="width: 98%; margin-top: .5rem;" type="date " id="date " name="date ">
             </div>
             <div>
-                <label for="postingPeriod">POSTING PERIOD</label>
-                <select class="col-lg-12" name="postingPeriod" id="postingPeriod">
-                    <option value=""> Mar 2020</option>
+                <label for="postingPeriod ">POSTING PERIOD</label>
+                <select style="width: 100%; margin-top: .5rem;" name="postingPeriod " id="postingPeriod ">
+                    <option value=" "> Mar 2020</option>
                 </select>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-12 offset-lg-1 offset-md-1">
-            <label for="memo">MEMO</label>
-            <input class="col-lg-12" type="text" id="memo" name="memo">
+        <div class="column ">
+            <label for="memo ">MEMO</label>
+            <input style="width: 98%; margin-top: .5rem;" type="text " id="memo " name="memo ">
         </div>
     </section>
 
-    <h5 class="second-header">Lines</h5>
-    <section class="mt-3 ml-3 mr-3" style=" border: 1px solid lightgray;">
-        <div class="section-header font-weight-bold pl-3">0.00</div>
+    <h2 class="second-header ">Lines</h2>
+    <section class="table-container ">
+        <div class="section-header table-header ">0.00</div>
 
-        <div class="button mt-2 mb-2 ml-3"> Clear All Lines
+        <div class="button clearAllLineButton "> Clear All Lines
         </div>
 
 
-        <div style="overflow-x:auto;">
+        <div style="overflow-x:auto; ">
             <table>
                 <tr>
-                    <th>ACCOUNT <span style="color: red;">*</span></th>
+                    <th>ACCOUNT <span style="color: red; ">*</span></th>
                     <th>DEBIT</th>
                     <th>CREDIT</th>
                     <th>TAX CODE</th>
@@ -207,29 +269,61 @@
 
                 </tr>
                 <tr>
-                    <td>Jill</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
+                    <td><input type="text " value="aaaa "></td>
+                    <td><input type="number " value="1111 "></td>
+                    <td><input type="number " value="1111 "></td>
+                    <td><input type="number " value="1111 "></td>
+                    <td><input type="number " value="1111 "></td>
+                    <td><input type="number " value="2222 "></td>
+                    <td><select name=" " id=" ">
+                            <option value=" ">ahmed</option>
+                            <option value=" "> ahmed</option>
+                            <option value=" "> ahmed</option>
+                            <option value=" "> ahmed</option>
+                            <option value=" "> ahmed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name=" " id=" ">
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name=" " id=" ">
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name=" " id=" ">
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                            <option value=" ">aaaa</option>
+                        </select></td>
                 </tr>
 
             </table>
         </div>
 
     </section>
-    <div class=" d-flex ml-4 p-1 flex-wrap btns">
-        <div class="saveBtn d-flex justify-content-center align-items-center "><i class="fa fa-check "></i> OK</div>
-        <div class="button "><i class="fa fa-times"></i> Cancel</div>
-        <div class="button"><i class="fa fa-copy "> Make Copy</i></div>
-        <div class="button "><i class="fa fa-plus "> Insert</i></div>
-        <div class="button "><i class="fa fa-trash "> Remove</i></div>
+    <div class="btns ">
+        <div class="saveBtn btn "><i class="fa fa-check "></i> OK</div>
+        <div class="button btn "><i class="fa fa-times "></i> Cancel</div>
+        <div class="button btn "><i class="fa fa-copy "> Make Copy</i></div>
+        <div class="button btn "><i class="fa fa-plus "> Insert</i></div>
+        <div class="button btn "><i class="fa fa-trash "> Remove</i></div>
     </div>
 </body>
+
+</html>
 
 </html>
